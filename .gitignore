@@ -1,0 +1,15 @@
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub/
+.idea/
+.vscode/
+build/
+coverage/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+windows/flutter/ephemeral/
+android/.gradle/
