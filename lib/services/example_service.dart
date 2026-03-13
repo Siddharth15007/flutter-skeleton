@@ -28,7 +28,20 @@ class ExampleService {
 
   Future<KResult<ExamplePayload>> loadExample() async {
     try {
-      final summary = await _repository.fetchSummary();
+      final summaryResult = await _repository.fetchSummary();
+      final summaryFailure = summaryResult.fold(
+        (failure) => failure,
+        (_) => null,
+      );
+
+      if (summaryFailure != null) {
+        return KResult<ExamplePayload>.error(summaryFailure);
+      }
+
+      final summary = summaryResult.fold(
+        (_) => throw StateError('Summary expected after failure guard.'),
+        (value) => value,
+      );
       final sessionResult = await _sessionService.bootstrapSession();
 
       return sessionResult.fold(

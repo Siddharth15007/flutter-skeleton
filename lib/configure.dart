@@ -1,9 +1,13 @@
 import 'package:get_it/get_it.dart';
 
 import 'package:flutter_bloc_template/register_module.dart';
+import 'package:flutter_bloc_template/repositories/local_repository/in_memory_key_value_storage.dart';
 import 'package:flutter_bloc_template/repositories/local_repository/in_memory_secured_storage.dart';
+import 'package:flutter_bloc_template/repositories/local_repository/key_value_storage.dart';
 import 'package:flutter_bloc_template/repositories/local_repository/secured_storage.dart';
+import 'package:flutter_bloc_template/repositories/remote_repository/api_client.dart';
 import 'package:flutter_bloc_template/repositories/remote_repository/example_repository.dart';
+import 'package:flutter_bloc_template/services/app_bootstrap_service.dart';
 import 'package:flutter_bloc_template/services/example_service.dart';
 import 'package:flutter_bloc_template/services/session_service.dart';
 
@@ -20,8 +24,14 @@ Future<void> configureDependencies() async {
   getIt.registerLazySingleton<SecuredStorage>(
     InMemorySecuredStorage.new,
   );
+  getIt.registerLazySingleton<KeyValueStorage>(
+    InMemoryKeyValueStorage.new,
+  );
+  getIt.registerLazySingleton<ApiClient>(
+    MockApiClient.new,
+  );
   getIt.registerLazySingleton<ExampleRepository>(
-    MockExampleRepository.new,
+    () => MockExampleRepository(getIt<ApiClient>()),
   );
   getIt.registerLazySingleton<SessionService>(
     () => SessionService(
@@ -33,6 +43,13 @@ Future<void> configureDependencies() async {
     () => ExampleService(
       getIt<ExampleRepository>(),
       getIt<SessionService>(),
+      getIt<AppLogger>(),
+    ),
+  );
+  getIt.registerLazySingleton<AppBootstrapService>(
+    () => AppBootstrapService(
+      getIt<SessionService>(),
+      getIt<KeyValueStorage>(),
       getIt<AppLogger>(),
     ),
   );

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_bloc_template/configure.dart';
+import 'package:flutter_bloc_template/presentation/common/app_section_card.dart';
 import 'package:flutter_bloc_template/presentation/example/bloc/example_bloc.dart';
 import 'package:flutter_bloc_template/presentation/root/context_extensions.dart';
 import 'package:flutter_bloc_template/services/example_service.dart';
-import 'package:flutter_bloc_template/utils/constants.dart';
+import 'package:flutter_bloc_template/utils/constants.dart' show AppSpacing;
 
 class ExampleScreen extends StatelessWidget {
   static const String id = 'example';
@@ -28,28 +29,23 @@ class _ExamplePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(AppStrings.appName),
-      ),
-      body: SafeArea(
-        child: BlocBuilder<ExampleBloc, ExampleState>(
-          builder: (context, state) {
-            if (state is ExampleLoadingState || state is ExampleInitialState) {
-              return const Center(child: CircularProgressIndicator());
-            }
+    return SafeArea(
+      child: BlocBuilder<ExampleBloc, ExampleState>(
+        builder: (context, state) {
+          if (state is ExampleLoadingState || state is ExampleInitialState) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-            if (state is ExampleErrorState) {
-              return _ErrorView(message: state.message);
-            }
+          if (state is ExampleErrorState) {
+            return _ErrorView(message: state.message);
+          }
 
-            if (state is ExampleLoadedState) {
-              return _LoadedView(state: state);
-            }
+          if (state is ExampleLoadedState) {
+            return _LoadedView(state: state);
+          }
 
-            return const SizedBox.shrink();
-          },
-        ),
+          return const SizedBox.shrink();
+        },
       ),
     );
   }
@@ -96,71 +92,65 @@ class _LoadedView extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppSpacing.large),
-        Card(
-          child: Padding(
-            padding: const EdgeInsets.all(AppSpacing.large),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Architecture Highlights',
-                  style: context.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
+        AppSectionCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Architecture Highlights',
+                style: context.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: AppSpacing.medium),
+              for (final highlight in state.highlights)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: AppSpacing.small),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Icon(
+                        Icons.verified_user_outlined,
+                        color: context.colors.secondary,
+                        size: 20,
+                      ),
+                      const SizedBox(width: AppSpacing.small),
+                      Expanded(
+                        child: Text(highlight),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: AppSpacing.medium),
-                for (final highlight in state.highlights)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: AppSpacing.small),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Icon(
-                          Icons.verified_user_outlined,
-                          color: context.colors.secondary,
-                          size: 20,
-                        ),
-                        const SizedBox(width: AppSpacing.small),
-                        Expanded(
-                          child: Text(highlight),
-                        ),
-                      ],
-                    ),
-                  ),
-              ],
-            ),
+            ],
           ),
         ),
         const SizedBox(height: AppSpacing.large),
-        Card(
-          child: Padding(
-            padding: const EdgeInsets.all(AppSpacing.large),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Demo Secure Session',
-                  style: context.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+        AppSectionCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Demo Secure Session',
+                style: context.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
                 ),
-                const SizedBox(height: AppSpacing.small),
-                Text(
-                  state.sessionToken,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    fontFamily: 'monospace',
-                  ),
+              ),
+              const SizedBox(height: AppSpacing.small),
+              Text(
+                state.sessionToken,
+                style: context.textTheme.bodyMedium?.copyWith(
+                  fontFamily: 'monospace',
                 ),
-                const SizedBox(height: AppSpacing.medium),
-                FilledButton.icon(
-                  onPressed: () {
-                    context.read<ExampleBloc>().add(const ResetSessionEvent());
-                  },
-                  icon: const Icon(Icons.restart_alt),
-                  label: const Text('Reset Session'),
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(height: AppSpacing.medium),
+              FilledButton.icon(
+                onPressed: () {
+                  context.read<ExampleBloc>().add(const ResetSessionEvent());
+                },
+                icon: const Icon(Icons.restart_alt),
+                label: const Text('Reset Session'),
+              ),
+            ],
           ),
         ),
       ],

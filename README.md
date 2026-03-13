@@ -8,6 +8,8 @@ Reusable Flutter template using:
 - typed `KResult<T>` and `Failure` handling
 - repository and service layers
 - secure storage abstraction with a demo implementation
+- app bootstrap flow and shell navigation
+- reusable shared widgets and placeholder feature slots
 
 ## Use As Template
 
@@ -31,6 +33,15 @@ lib/
 └── utils/
 ```
 
+## Included Boilerplate
+
+- application bootstrap service for config and session warm-up
+- shell layout with bottom navigation and environment badge
+- mock API client to replace with real network layer
+- key-value storage and secure storage abstractions
+- shared cards and empty-state widgets
+- example feature, feature catalog page, and settings checklist page
+
 ## Example Feature
 
 The included example screen demonstrates:
@@ -44,12 +55,14 @@ The included example screen demonstrates:
 ## Recommended Customization Order
 
 1. Replace the demo `ExampleRepository` with your remote data source.
-2. Replace `InMemorySecuredStorage` with platform-backed secure storage.
-3. Add feature routes in `lib/app/app_router.dart`.
-4. Register new dependencies in `lib/configure.dart`.
-5. Copy `presentation/example/` as the starting point for each new feature.
+2. Replace `MockApiClient` with Dio, Retrofit, or your preferred network stack.
+3. Replace `InMemorySecuredStorage` and `InMemoryKeyValueStorage` with real storage.
+4. Add feature routes in `lib/app/app_router.dart`.
+5. Register new dependencies in `lib/configure.dart`.
+6. Copy `presentation/example/` as the starting point for each new feature.
 
 ## Notes
 
 - This repository intentionally does not commit generated platform folders.
 - The included example is a template seed, not product-specific code.
+- Flutter and Dart SDKs are still required locally to run `flutter create .`, `flutter analyze`, and `flutter test`.
