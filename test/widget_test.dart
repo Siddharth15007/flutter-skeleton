@@ -9,7 +9,7 @@ void main() {
     await app.main();
     await tester.pumpAndSettle();
 
-    expect(find.text('Flutter BLoC Template'), findsWidgets);
+    expect(find.text('Flutter BLoC Template Dev'), findsWidgets);
     expect(find.text('Architecture Highlights'), findsOneWidget);
   });
 }

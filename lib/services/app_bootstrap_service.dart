@@ -1,3 +1,4 @@
+import 'package:flutter_bloc_template/app/app_flavor.dart';
 import 'package:flutter_bloc_template/models/app_config_model.dart';
 import 'package:flutter_bloc_template/register_module.dart';
 import 'package:flutter_bloc_template/repositories/local_repository/key_value_storage.dart';
@@ -27,16 +28,17 @@ class AppBootstrapService {
   );
 
   Future<KResult<AppBootstrapPayload>> bootstrap() async {
+    const currentFlavor = AppFlavor.current;
     const config = AppConfigModel(
-      appName: AppStrings.appName,
-      environment: AppEnvironment.dev,
-      baseUrl: AppEnvironment.baseUrl,
-      enableLogs: true,
+      appName: currentFlavor.appName,
+      flavor: currentFlavor.name,
+      baseUrl: currentFlavor.baseUrl,
+      enableLogs: currentFlavor.enableLogs,
     );
 
     final cacheResult = await _keyValueStorage.write(
-      key: StorageKeys.environment,
-      value: config.environment,
+      key: StorageKeys.flavor,
+      value: config.flavor,
     );
 
     final cacheFailure = cacheResult.fold(

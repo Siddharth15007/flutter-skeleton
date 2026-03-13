@@ -1,0 +1,45 @@
+app:
+  android:
+    flavorDimensions: "default"
+  ios:
+    targets:
+      Runner:
+        bundleIdPrefix: com.example
+
+flavors:
+  dev:
+    app:
+      name: "Flutter BLoC Template Dev"
+    android:
+      applicationId: "com.example.flutterbloctemplate.dev"
+    ios:
+      bundleId: "com.example.flutterbloctemplate.dev"
+    variables:
+      FLAVOR: dev
+      APP_NAME: Flutter BLoC Template Dev
+      BASE_URL: https://dev-api.example.com
+      ENABLE_LOGS: true
+  stage:
+    app:
+      name: "Flutter BLoC Template Stage"
+    android:
+      applicationId: "com.example.flutterbloctemplate.stage"
+    ios:
+      bundleId: "com.example.flutterbloctemplate.stage"
+    variables:
+      FLAVOR: stage
+      APP_NAME: Flutter BLoC Template Stage
+      BASE_URL: https://stage-api.example.com
+      ENABLE_LOGS: true
+  prod:
+    app:
+      name: "Flutter BLoC Template"
+    android:
+      applicationId: "com.example.flutterbloctemplate"
+    ios:
+      bundleId: "com.example.flutterbloctemplate"
+    variables:
+      FLAVOR: prod
+      APP_NAME: Flutter BLoC Template
+      BASE_URL: https://api.example.com
+      ENABLE_LOGS: false

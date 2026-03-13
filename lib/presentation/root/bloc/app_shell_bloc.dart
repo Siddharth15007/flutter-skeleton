@@ -28,7 +28,7 @@ class AppShellBloc extends Bloc<AppShellEvent, AppShellState> {
       (payload) => emit(
         AppShellLoadedState(
           appName: payload.config.appName,
-          environment: payload.config.environment,
+          flavor: payload.config.flavor,
           baseUrl: payload.config.baseUrl,
           sessionToken: payload.sessionToken,
         ),

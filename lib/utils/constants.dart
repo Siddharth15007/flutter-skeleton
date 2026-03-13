@@ -5,11 +5,6 @@ class AppStrings {
   static const String demoToken = 'demo-token-2026-secure-seed';
 }
 
-class AppEnvironment {
-  static const String dev = 'dev';
-  static const String baseUrl = 'https://api.example.com';
-}
-
 class ErrorMessages {
   static const String internalError = 'Something went wrong.';
   static const String tokenNotFound = 'Session not available.';
@@ -17,7 +12,7 @@ class ErrorMessages {
 }
 
 class StorageKeys {
-  static const String environment = 'environment';
+  static const String flavor = 'flavor';
 }
 
 class AppSpacing {

@@ -14,13 +14,13 @@ class AppShellLoadingState extends AppShellState {
 
 class AppShellLoadedState extends AppShellState {
   final String appName;
-  final String environment;
+  final String flavor;
   final String baseUrl;
   final String sessionToken;
 
   const AppShellLoadedState({
     required this.appName,
-    required this.environment,
+    required this.flavor,
     required this.baseUrl,
     required this.sessionToken,
   });

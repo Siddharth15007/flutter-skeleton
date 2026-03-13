@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_bloc_template/app/app_flavor.dart';
 import 'package:flutter_bloc_template/app/app_router.dart';
 import 'package:flutter_bloc_template/app/app_theme.dart';
-import 'package:flutter_bloc_template/utils/constants.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -10,7 +10,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: AppStrings.appName,
+      title: AppFlavor.current.appName,
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
       theme: AppTheme.lightTheme,

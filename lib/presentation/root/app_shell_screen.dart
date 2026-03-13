@@ -69,7 +69,7 @@ class _AppShellView extends StatelessWidget {
                 ),
                 child: Row(
                   children: <Widget>[
-                    _ShellBadge(label: state.environment.toUpperCase()),
+                    _ShellBadge(label: state.flavor.toUpperCase()),
                     const SizedBox(width: AppSpacing.small),
                     Expanded(
                       child: Text(
