@@ -1,11 +1,11 @@
 import 'package:get_it/get_it.dart';
 
-import 'package:flutter_skeleton/register_module.dart';
-import 'package:flutter_skeleton/repositories/local_repository/in_memory_secured_storage.dart';
-import 'package:flutter_skeleton/repositories/local_repository/secured_storage.dart';
-import 'package:flutter_skeleton/repositories/remote_repository/example_repository.dart';
-import 'package:flutter_skeleton/services/example_service.dart';
-import 'package:flutter_skeleton/services/session_service.dart';
+import 'package:flutter_bloc_template/register_module.dart';
+import 'package:flutter_bloc_template/repositories/local_repository/in_memory_secured_storage.dart';
+import 'package:flutter_bloc_template/repositories/local_repository/secured_storage.dart';
+import 'package:flutter_bloc_template/repositories/remote_repository/example_repository.dart';
+import 'package:flutter_bloc_template/services/example_service.dart';
+import 'package:flutter_bloc_template/services/session_service.dart';
 
 final GetIt getIt = GetIt.instance;
 

@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 
-import 'package:flutter_skeleton/presentation/example/example_screen.dart';
+import 'package:flutter_bloc_template/presentation/example/example_screen.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(

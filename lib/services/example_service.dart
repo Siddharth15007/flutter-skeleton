@@ -1,9 +1,9 @@
-import 'package:flutter_skeleton/models/example_summary_model.dart';
-import 'package:flutter_skeleton/models/failure.dart';
-import 'package:flutter_skeleton/register_module.dart';
-import 'package:flutter_skeleton/repositories/remote_repository/example_repository.dart';
-import 'package:flutter_skeleton/services/session_service.dart';
-import 'package:flutter_skeleton/utils/result.dart';
+import 'package:flutter_bloc_template/models/example_summary_model.dart';
+import 'package:flutter_bloc_template/models/failure.dart';
+import 'package:flutter_bloc_template/register_module.dart';
+import 'package:flutter_bloc_template/repositories/remote_repository/example_repository.dart';
+import 'package:flutter_bloc_template/services/session_service.dart';
+import 'package:flutter_bloc_template/utils/result.dart';
 
 class ExamplePayload {
   final ExampleSummaryModel summary;

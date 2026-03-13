@@ -1,8 +1,8 @@
-import 'package:flutter_skeleton/models/failure.dart';
-import 'package:flutter_skeleton/register_module.dart';
-import 'package:flutter_skeleton/repositories/local_repository/secured_storage.dart';
-import 'package:flutter_skeleton/utils/constants.dart';
-import 'package:flutter_skeleton/utils/result.dart';
+import 'package:flutter_bloc_template/models/failure.dart';
+import 'package:flutter_bloc_template/register_module.dart';
+import 'package:flutter_bloc_template/repositories/local_repository/secured_storage.dart';
+import 'package:flutter_bloc_template/utils/constants.dart';
+import 'package:flutter_bloc_template/utils/result.dart';
 
 class SessionService {
   final SecuredStorage _securedStorage;

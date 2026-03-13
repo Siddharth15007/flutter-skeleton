@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:flutter_skeleton/configure.dart';
-import 'package:flutter_skeleton/presentation/example/bloc/example_bloc.dart';
-import 'package:flutter_skeleton/presentation/root/context_extensions.dart';
-import 'package:flutter_skeleton/services/example_service.dart';
-import 'package:flutter_skeleton/utils/constants.dart';
+import 'package:flutter_bloc_template/configure.dart';
+import 'package:flutter_bloc_template/presentation/example/bloc/example_bloc.dart';
+import 'package:flutter_bloc_template/presentation/root/context_extensions.dart';
+import 'package:flutter_bloc_template/services/example_service.dart';
+import 'package:flutter_bloc_template/utils/constants.dart';
 
 class ExampleScreen extends StatelessWidget {
   static const String id = 'example';

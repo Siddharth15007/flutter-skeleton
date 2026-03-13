@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 
-import 'package:flutter_skeleton/services/example_service.dart';
+import 'package:flutter_bloc_template/services/example_service.dart';
 
 part 'example_event.dart';
 part 'example_state.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_skeleton/utils/constants.dart';
+import 'package:flutter_bloc_template/utils/constants.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {

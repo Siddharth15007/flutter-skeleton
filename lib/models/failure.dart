@@ -1,4 +1,4 @@
-import 'package:flutter_skeleton/utils/constants.dart';
+import 'package:flutter_bloc_template/utils/constants.dart';
 
 sealed class Failure {
   const Failure();

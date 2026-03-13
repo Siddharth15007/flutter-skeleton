@@ -1,5 +1,5 @@
-name: flutter_skeleton
-description: A reusable Flutter skeleton using flutter_bloc, layered architecture, and secure abstractions.
+name: flutter_bloc_template
+description: A reusable Flutter template using flutter_bloc, layered architecture, and secure abstractions.
 publish_to: none
 version: 1.0.0+1
 

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter_skeleton/models/example_summary_model.dart';
+import 'package:flutter_bloc_template/models/example_summary_model.dart';
 
 abstract class ExampleRepository {
   Future<ExampleSummaryModel> fetchSummary();
@@ -12,13 +12,13 @@ class MockExampleRepository extends ExampleRepository {
     await Future<void>.delayed(const Duration(milliseconds: 250));
 
     return const ExampleSummaryModel(
-      title: 'Flutter Skeleton',
+      title: 'Reusable Template Project',
       description:
-          'A feature-first starter with flutter_bloc, routing, DI, and secure abstractions.',
+          'A feature-first Flutter template with flutter_bloc, routing, DI, and secure abstractions.',
       highlights: <String>[
-        'Layered architecture with repository and service boundaries',
-        'Typed failure and result handling',
-        'Reusable theme, router, and context extensions',
+        'Rename the package and app strings to bootstrap a new product',
+        'Replace the mock repository with real API and storage implementations',
+        'Duplicate the example feature folder to scaffold new features consistently',
       ],
     );
   }

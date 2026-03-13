@@ -1,4 +1,4 @@
-import 'package:flutter_skeleton/models/failure.dart';
+import 'package:flutter_bloc_template/models/failure.dart';
 
 sealed class KResult<T> {
   const KResult();

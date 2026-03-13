@@ -1,5 +1,5 @@
 class AppStrings {
-  static const String appName = 'Flutter Skeleton';
+  static const String appName = 'Flutter BLoC Template';
   static const String demoToken = 'demo-token-2026-secure-seed';
 }
 
