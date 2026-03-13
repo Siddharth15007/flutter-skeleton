@@ -31,6 +31,11 @@ class SettingsScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: AppSpacing.small),
                   child: Text('• $item'),
                 ),
+              const SizedBox(height: AppSpacing.medium),
+              Text(
+                'Flavor generation command: dart run kflavor generate',
+                style: context.textTheme.bodySmall,
+              ),
             ],
           ),
         ),

@@ -31,6 +31,12 @@ class MockApiClient extends ApiClient {
       );
     }
 
+    if (path.startsWith('/template/items')) {
+      return const KResult<Map<String, dynamic>>.value(
+        <String, dynamic>{'status': 'ok'},
+      );
+    }
+
     return const KResult<Map<String, dynamic>>.error(
       ValidationFailure(error: 'Unsupported mock endpoint.'),
     );

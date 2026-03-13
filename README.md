@@ -11,6 +11,9 @@ Reusable Flutter template using:
 - app bootstrap flow and shell navigation
 - reusable shared widgets and placeholder feature slots
 - `kflavor`-based native flavor setup
+- Dio integration points and API interceptor template
+- auth feature seed and paginated search seed
+- GitHub Actions workflows for CI and flavor builds
 
 ## Use As Template
 
@@ -41,10 +44,12 @@ lib/
 - application bootstrap service for config and session warm-up
 - shell layout with bottom navigation and environment badge
 - mock API client to replace with real network layer
+- Dio API client and interceptor scaffolding
 - key-value storage and secure storage abstractions
 - shared cards and empty-state widgets
-- example feature, feature catalog page, and settings checklist page
+- example feature, auth seed, paginated list seed, feature catalog page, and settings checklist page
 - `flavors.yaml` for `dev`, `stage`, and `prod`
+- GitHub Actions templates in `.github/workflows/`
 
 ## Example Feature
 
@@ -63,9 +68,10 @@ The included example screen demonstrates:
 3. Replace `InMemorySecuredStorage` and `InMemoryKeyValueStorage` with real storage.
 4. Update flavor identifiers, bundle IDs, and URLs in `flavors.yaml`.
 5. Run `dart run kflavor generate`.
-6. Add feature routes in `lib/app/app_router.dart`.
-7. Register new dependencies in `lib/configure.dart`.
-8. Copy `presentation/example/` as the starting point for each new feature.
+6. Replace `ApiClient` registration in `configure.dart` with `DioApiClient`.
+7. Add feature routes in `lib/app/app_router.dart`.
+8. Register new dependencies in `lib/configure.dart`.
+9. Copy `presentation/example/`, `presentation/auth/`, or `presentation/paginated_template/` as the starting point for each new feature.
 
 ## Flavor Workflow
 
@@ -82,6 +88,13 @@ flutter run --flavor dev \
 ```
 
 The runtime flavor object is [lib/app/app_flavor.dart](/home/siddharthparekh40/flutter-skeleton/lib/app/app_flavor.dart). The bootstrap flow reads from it and exposes the selected flavor in the app shell.
+
+## Feature Seeds
+
+- [lib/presentation/auth/auth_screen.dart](/home/siddharthparekh40/flutter-skeleton/lib/presentation/auth/auth_screen.dart): login/logout starter module
+- [lib/presentation/paginated_template/paginated_template_screen.dart](/home/siddharthparekh40/flutter-skeleton/lib/presentation/paginated_template/paginated_template_screen.dart): search + pagination starter module
+- [lib/repositories/remote_repository/dio_api_client.dart](/home/siddharthparekh40/flutter-skeleton/lib/repositories/remote_repository/dio_api_client.dart): real HTTP client integration point
+- [.github/workflows/flutter_ci.yml](/home/siddharthparekh40/flutter-skeleton/.github/workflows/flutter_ci.yml): analyze and test workflow
 
 ## Notes
 

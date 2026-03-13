@@ -55,11 +55,13 @@ class AppTemplateMessages {
     'Create model, repository, service, bloc, and screen for the new domain.',
     'Register dependencies in configure.dart.',
     'Add the route in app_router.dart.',
+    'Reuse the auth or pagination templates where they fit.',
     'Write widget and service tests for the new feature.',
   ];
 
   static const List<String> productionChecklist = <String>[
     'Replace mock API client with Dio or your preferred client.',
+    'Switch ApiClient registration from MockApiClient to DioApiClient.',
     'Use flutter_secure_storage for sensitive data.',
     'Add environment-based configuration and secrets management.',
     'Integrate analytics, crash reporting, and remote config.',

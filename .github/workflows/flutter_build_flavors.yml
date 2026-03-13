@@ -1,0 +1,24 @@
+name: Flutter Build Flavors
+
+on:
+  workflow_dispatch:
+
+jobs:
+  android-build-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Generate flavors
+        run: dart run kflavor generate
+      - name: Build APK
+        run: >
+          flutter build apk --flavor dev
+          --dart-define=FLAVOR=dev
+          --dart-define=APP_NAME=Flutter BLoC Template Dev
+          --dart-define=BASE_URL=https://dev-api.example.com
+          --dart-define=ENABLE_LOGS=true
